@@ -9,10 +9,13 @@ import java.awt.Color;
 public class TetrisBlock {
     private int[][] shape;
     private Color color;
+    private int x, y;
 
     public TetrisBlock(int[][] shape, Color color) {
         this.shape = shape;
         this.color = color;
+        x = 3;
+        y = 2;
     }
 
     // Accessors
@@ -30,6 +33,14 @@ public class TetrisBlock {
 
     public int getWidth() {
         return shape[0].length;
+    }
+
+    public int getX() {
+        return x;
+    }
+
+    public int getY() {
+        return y;
     }
 
 }

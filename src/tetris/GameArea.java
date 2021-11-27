@@ -43,6 +43,8 @@ public class GameArea extends JPanel {
         for (int row = 0; row < h; row++) {
             for (int col = 0; col < w; col++) {
                 if (s[row][col] == 1) {
+                    int x;
+                    int y;
                     g.setColor(c);
                     g.fillRect(col * gridCellSize, row * gridCellSize, gridCellSize, gridCellSize);
                     g.setColor(Color.black);
