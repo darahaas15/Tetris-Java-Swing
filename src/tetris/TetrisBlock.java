@@ -43,4 +43,19 @@ public class TetrisBlock {
         return y;
     }
 
+    // Moving the block to the left
+    public void moveLeft() {
+        x--;
+    }
+
+    // Moving the block to the right
+    public void moveRight() {
+        x++;
+    }
+
+    // Moving the block down
+    public void moveDown() {
+        y++;
+    }
+
 }

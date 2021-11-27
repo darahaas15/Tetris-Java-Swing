@@ -34,6 +34,11 @@ public class GameArea extends JPanel {
 
     }
 
+    public void moveDown() {
+        block.moveDown();
+        repaint();
+    }
+
     private void drawBlock(Graphics g) {
         int h = block.getHeight();
         int w = block.getWidth();
@@ -43,12 +48,13 @@ public class GameArea extends JPanel {
         for (int row = 0; row < h; row++) {
             for (int col = 0; col < w; col++) {
                 if (s[row][col] == 1) {
-                    int x;
-                    int y;
+                    int x = (block.getX() + col) * gridCellSize;
+                    int y = (block.getY() + row) * gridCellSize;
+
                     g.setColor(c);
-                    g.fillRect(col * gridCellSize, row * gridCellSize, gridCellSize, gridCellSize);
+                    g.fillRect(x, y, gridCellSize, gridCellSize);
                     g.setColor(Color.black);
-                    g.drawRect(col * gridCellSize, row * gridCellSize, gridCellSize, gridCellSize);
+                    g.drawRect(x, y, gridCellSize, gridCellSize);
 
                 }
             }
