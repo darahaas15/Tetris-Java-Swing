@@ -14,8 +14,11 @@ public class TetrisBlock {
     public TetrisBlock(int[][] shape, Color color) {
         this.shape = shape;
         this.color = color;
-        x = 3;
-        y = 2;
+    }
+
+    public void spawn(int gridWidth) {
+        y = -getHeight();
+        x = (gridWidth - getWidth()) / 2;
     }
 
     // Accessors

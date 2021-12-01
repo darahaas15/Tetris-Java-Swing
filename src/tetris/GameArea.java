@@ -31,6 +31,7 @@ public class GameArea extends JPanel {
     public void spawnBlock() {
         // Spawn block
         block = new TetrisBlock(new int[][] { { 1, 0 }, { 1, 0 }, { 1, 1 } }, Color.red);
+        block.spawn(gridColumns);
 
     }
 
