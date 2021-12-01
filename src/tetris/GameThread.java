@@ -16,13 +16,16 @@ public class GameThread extends Thread {
     public void run() {
 
         while (true) {
-            ga.moveDown();
-            try {
-                Thread.sleep(1000);
-            } catch (InterruptedException e) {
-                // TODO Auto-generated catch block
-                e.printStackTrace();
+            ga.spawnBlock();
+            while (ga.moveBlockDown() == true) {
+                try {
+                    Thread.sleep(1000);
+                } catch (InterruptedException e) {
+                    // TODO Auto-generated catch block
+                    e.printStackTrace();
+                }
             }
+
         }
     }
 }

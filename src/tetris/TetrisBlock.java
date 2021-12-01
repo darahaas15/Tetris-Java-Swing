@@ -61,4 +61,8 @@ public class TetrisBlock {
         y++;
     }
 
+    public int getBottomEdge() {
+        return y + getHeight();
+    }
+
 }

@@ -25,6 +25,7 @@ public class GameArea extends JPanel {
         gridColumns = columns;
         gridCellSize = this.getBounds().width / gridColumns;
         gridRows = this.getBounds().height / gridCellSize;
+
         spawnBlock();
     }
 
@@ -35,9 +36,22 @@ public class GameArea extends JPanel {
 
     }
 
-    public void moveDown() {
+    public boolean moveBlockDown() {
+        if (checkBottom() == false) {
+            return false;
+        }
+
         block.moveDown();
         repaint();
+
+        return true;
+    }
+
+    private boolean checkBottom() {
+        if (block.getBottomEdge() == gridRows) {
+            return false;
+        }
+        return true;
     }
 
     private void drawBlock(Graphics g) {
