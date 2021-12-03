@@ -44,6 +44,10 @@ public class GameArea extends JPanel {
         };
     }
 
+    public void initBackgroundarray() {
+        background = new Color[gridRows][gridColumns];
+    }
+
     public void spawnBlock() {
         // Spawn block
         Random r = new Random();
