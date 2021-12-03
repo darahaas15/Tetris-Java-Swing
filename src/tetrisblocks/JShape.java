@@ -1,13 +1,14 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package tetrisblocks;
+
+import tetris.TetrisBlock;
 
 /**
  *
  * @author darahaas15
  */
-public class JShape {
-    
+public class JShape extends TetrisBlock {
+
+    public JShape() {
+        super(new int[][] { { 0, 1 }, { 0, 1 }, { 1, 1 } });
+    }
 }

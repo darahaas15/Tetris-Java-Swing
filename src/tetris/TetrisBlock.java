@@ -77,6 +77,14 @@ public class TetrisBlock {
         return y;
     }
 
+    public void setX(int newX) {
+        x = newX;
+    }
+
+    public void setY(int newY) {
+        y = newY;
+    }
+
     // Moving the block to the left
     public void moveLeft() {
         x--;

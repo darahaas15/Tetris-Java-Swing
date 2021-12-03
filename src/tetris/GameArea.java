@@ -3,6 +3,9 @@ package tetris;
 import javax.swing.JPanel;
 import java.awt.Color;
 import java.awt.Graphics;
+import java.util.Random;
+
+import tetrisblocks.*;
 
 /**
  *
@@ -16,6 +19,7 @@ public class GameArea extends JPanel {
 
     // Tetris block class
     private TetrisBlock block;
+    private TetrisBlock[] blocks;
 
     public GameArea(JPanel placeholder, int columns) {
         placeholder.setVisible(false);
@@ -28,11 +32,22 @@ public class GameArea extends JPanel {
         gridRows = this.getBounds().height / gridCellSize;
 
         background = new Color[gridRows][gridColumns];
+
+        blocks = new TetrisBlock[] {
+                new IShape(),
+                new JShape(),
+                new LShape(),
+                new OShape(),
+                new SShape(),
+                new TShape(),
+                new ZShape()
+        };
     }
 
     public void spawnBlock() {
         // Spawn block
-        block = new TetrisBlock(new int[][] { { 1, 0 }, { 1, 0 }, { 1, 1 } });
+        Random r = new Random();
+        block = blocks[r.nextInt(blocks.length)];
         block.spawn(gridColumns);
 
     }
@@ -100,7 +115,19 @@ public class GameArea extends JPanel {
         }
 
         block.rotate();
-        repaint();
+
+        if (block.getLeftEdge() < 0) {
+            block.setX(0);
+        }
+
+        if (block.getRightEdge() >= gridColumns) {
+            block.setX(gridColumns - block.getWidth());
+        }
+
+        if (block.getBottomEdge() >= gridRows) {
+            block.setY(gridRows - block.getHeight());
+        }
+
     }
 
     private boolean checkBottom() {
