@@ -128,6 +128,8 @@ public class GameArea extends JPanel {
             block.setY(gridRows - block.getHeight());
         }
 
+        repaint();
+
     }
 
     private boolean checkBottom() {
